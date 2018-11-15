@@ -26,19 +26,14 @@ class Campus_model extends CI_Model {
     }
 
     public function planteles() {
-        /*
         $this->campus->select('code_value as id, short_desc as description');
         $query = $this->campus->get('code_acasession');
         
-        return $query->result();*/
-        return array(
-            (object) array('id' => 'PUE', 'description' => 'Puebla'),
-            (object) array('id' => 'TEH', 'description' =>'Tehuacán')
-        );
+        return $query->result();
     }
 
     public function ciclos_academicos() {
-        /*$this->campus->distinct();
+        $this->campus->distinct();
         $this->campus->select('academic_year as id, academic_year as description');
         $this->campus->where(array(
             'academic_year >' => '1980',
@@ -47,12 +42,7 @@ class Campus_model extends CI_Model {
         $this->campus->order_by('academic_year', 'DESC');
         $query = $this->campus->get('academic');
 
-        return $query->result();*/
-        $years = array();
-        for ( $i = 1980; $i < 2020; $i++ ) {
-            $years[] = (object) array('id' => $i, 'description' => $i);
-        }
-        return $years;
+        return $query->result();
     }
 
     public function periodos_academicos() {
